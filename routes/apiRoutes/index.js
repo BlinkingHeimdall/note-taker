@@ -2,13 +2,13 @@ const fs = require('fs');
 const router = require('express').Router();
 const userId = require('../../public/assets/js/userId');
 
-
+// this willget all the notes
 router.get('/notes', (req, res) => {
     const notes = JSON.parse(fs.readFileSync('./db/db.json', 'utf-8'));
     res.json(notes);
 });
 
-
+// this will post new notes input on the site
 router.post('/notes', (req, res) => {
     const note = req.body;
     const notes = JSON.parse(fs.readFileSync('./db/db.json', 'utf-8'));
@@ -39,7 +39,7 @@ router.post('/notes', (req, res) => {
     res.json(note);
 });
 
-
+// this will delete an existing note when a user clicks the trash icon
 router.delete('/notes/:id', (req, res) => {
     const delId = req.params.id;
     const notes = JSON.parse(fs.readFileSync('./db/db.json', 'utf-8'));

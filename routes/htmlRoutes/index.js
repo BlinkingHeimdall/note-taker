@@ -1,17 +1,17 @@
 const path = require('path');
 const router = require('express').Router();
 
-// HTML GET request for landing page
+// This routes to the main page
 router.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../../public/index.html'));
 });
 
-// HTML GET request for notes page
+// this routes to the notes page
 router.get('/notes', (req, res) => {
     res.sendFile(path.join(__dirname, '../../public/notes.html'));
 });
 
-// HTML GET request for redirect
+// this redirects to the main page
 router.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../../public/index.html'));
 });
